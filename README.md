@@ -9,6 +9,6 @@ DokerHub: https://hub.docker.com/repositories/kiioskii
 SQLite w ramach projektu na Gradle (build.gradle) [--->](https://github.com/Kiioskii/E-biznes/tree/main/cw1/zad3) <br>
 4.5 stworzyć przykład typu HelloWorld oraz uruchomienie aplikacji
 przez CMD oraz gradle [--->](https://github.com/Kiioskii/E-biznes/tree/main/cw1/zad4) <br>
-5.0 dodać konfigurację docker-compose 
+5.0 dodać konfigurację docker-compose [--->](https://github.com/Kiioskii/E-biznes/blob/main/cw1/zad4/docker-compose.yaml)
 
 ------------------------------------------------------------
