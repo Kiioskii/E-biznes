@@ -1,0 +1,25 @@
+plugins {
+    id 'org.jetbrains.kotlin.jvm' version '1.9.24'
+    id 'application'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib"
+    implementation "org.xerial:sqlite-jdbc:3.45.1.0"
+}
+
+application {
+    mainClass = "HelloWorldKt"
+}
+
+kotlin {
+    jvmToolchain(8)
+}
+
+tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).configureEach {
+    kotlinOptions.jvmTarget = "1.8"
+}

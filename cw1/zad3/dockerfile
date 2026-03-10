@@ -1,0 +1,38 @@
+FROM ubuntu:24.04
+
+ENV DEBIAN_FRONTEND=noninteractive
+
+RUN apt-get update && \
+    apt-get install -y curl unzip ca-certificates tar zip wget git software-properties-common gnupg sqlite3 && \
+    apt-get clean
+
+RUN wget -qO - https://packages.adoptium.net/artifactory/api/gpg/key/public | gpg --dearmor -o /usr/share/keyrings/adoptium-archive-keyring.gpg && \
+    echo "deb [signed-by=/usr/share/keyrings/adoptium-archive-keyring.gpg] https://packages.adoptium.net/artifactory/deb jammy main" | tee /etc/apt/sources.list.d/adoptium.list && \
+    apt-get update && apt-get install -y temurin-8-jdk && \
+    rm -rf /var/lib/apt/lists/*
+
+ENV JAVA_HOME=/usr/lib/jvm/temurin-8-jdk-amd64
+ENV PATH=$JAVA_HOME/bin:$PATH
+ENV GRADLE_OPTS="-Dorg.gradle.java.home=${JAVA_HOME}"
+
+RUN curl -LO https://github.com/JetBrains/kotlin/releases/download/v1.9.24/kotlin-compiler-1.9.24.zip && \
+    unzip -o kotlin-compiler-1.9.24.zip -d /opt && \
+    rm kotlin-compiler-1.9.24.zip
+
+ENV PATH=$PATH:/opt/kotlinc/bin
+
+RUN wget https://services.gradle.org/distributions/gradle-8.7-bin.zip && \
+    unzip -o gradle-8.7-bin.zip -d /opt && \
+    rm gradle-8.7-bin.zip
+
+ENV GRADLE_HOME=/opt/gradle-8.7
+ENV PATH=$PATH:$GRADLE_HOME/bin
+
+WORKDIR /app
+
+COPY . .
+
+RUN gradle clean build --no-daemon
+
+# Run the application via Gradle from CMD
+CMD ["gradle", "run"]

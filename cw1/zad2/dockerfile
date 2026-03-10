@@ -3,7 +3,7 @@ FROM ubuntu:24.04
 ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update && \
-    apt-get install -y wget curl unzip software-properties-common && \
+    apt-get install -y wget curl unzip zip software-properties-common && \
     apt-get clean
 
 RUN apt-get update && \
