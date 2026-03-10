@@ -11,24 +11,21 @@ RUN wget -qO - https://packages.adoptium.net/artifactory/api/gpg/key/public | gp
     apt-get update && apt-get install -y temurin-8-jdk temurin-17-jdk && \
     rm -rf /var/lib/apt/lists/*
 
-ENV JAVA8_HOME=/usr/lib/jvm/temurin-8-jdk-amd64
-ENV JAVA17_HOME=/usr/lib/jvm/temurin-17-jdk-amd64
-ENV JAVA_HOME=$JAVA17_HOME
-ENV PATH=$JAVA_HOME/bin:$PATH
-ENV GRADLE_OPTS="-Dorg.gradle.java.home=${JAVA17_HOME}"
-
 RUN curl -LO https://github.com/JetBrains/kotlin/releases/download/v1.9.24/kotlin-compiler-1.9.24.zip && \
     unzip -o kotlin-compiler-1.9.24.zip -d /opt && \
     rm kotlin-compiler-1.9.24.zip
 
 ENV PATH=$PATH:/opt/kotlinc/bin
 
-RUN wget https://services.gradle.org/distributions/gradle-9.4.0-bin.zip && \
-    unzip -o gradle-9.4.0-bin.zip -d /opt && \
-    rm gradle-9.4.0-bin.zip
+RUN wget https://services.gradle.org/distributions/gradle-8.7-bin.zip && \
+    unzip -o gradle-8.7-bin.zip -d /opt && \
+    rm gradle-8.7-bin.zip
 
-ENV GRADLE_HOME=/opt/gradle-9.4.0
+ENV GRADLE_HOME=/opt/gradle-8.7
 ENV PATH=$PATH:$GRADLE_HOME/bin
+ENV JAVA_HOME=/usr/lib/jvm/temurin-8-jdk-amd64
+ENV GRADLE_OPTS="-Dorg.gradle.java.home=${JAVA_HOME}"
+
 
 WORKDIR /app
 
