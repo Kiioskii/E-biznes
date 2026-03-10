@@ -1,5 +1,8 @@
-**ZADANIE 1**
+Maciej Kijowski
+E-biznes 2026
+DokerHub: https://hub.docker.com/repositories/kiioskii
 
+**ZADANIE 1**
 3.0 obraz ubuntu z Pythonem w wersji 3.10 [--->](https://github.com/Kiioskii/E-biznes/tree/main/cw1/zad1) <br>
 3.5 obraz ubuntu:24.02 z Javą w wersji 8 oraz Kotlinem [--->](https://github.com/Kiioskii/E-biznes/tree/main/cw1/zad2)<br>
 4.0 do powyższego należy dodać najnowszego Gradle’a oraz paczkę JDBC
