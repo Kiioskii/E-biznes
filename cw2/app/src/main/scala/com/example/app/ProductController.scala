@@ -18,6 +18,7 @@ class ProductController extends ScalatraServlet with JacksonJsonSupport {
     Product(5, "LOTR", 7.0)
   )
 
+// READ
   get("/products") {
       products
   }
@@ -30,12 +31,14 @@ class ProductController extends ScalatraServlet with JacksonJsonSupport {
     }
   }
 
+// CREATE
   post("/products") {
     val product = parsedBody.extract[Product]
     products = products :+ product
     Created(product)
   }
 
+// UPDATE
   put("/products/:id") {
     val id = params("id").toInt
     val updated = parsedBody.extract[Product]
@@ -43,6 +46,7 @@ class ProductController extends ScalatraServlet with JacksonJsonSupport {
     updated
   }
 
+// DELETE
   delete("/products/:id") {
     val id = params("id").toInt
     products = products.filterNot(_.id == id)
