@@ -5,6 +5,15 @@
                              web-app_6_0.xsd"
          version="6.0">
 
+  <context-param>
+    <param-name>org.scalatra.cors.allowedOrigins</param-name>
+    <param-value>http://localhost:3000,http://localhost:5173</param-value>
+  </context-param>
+  <context-param>
+    <param-name>org.scalatra.cors.allowedMethods</param-name>
+    <param-value>GET,POST,PUT,DELETE,OPTIONS,HEAD,PATCH</param-value>
+  </context-param>
+
   <!--
     This listener loads a class in the default package called ScalatraBootstrap.
     That class should implement org.scalatra.LifeCycle.  Your app can be

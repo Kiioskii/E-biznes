@@ -6,7 +6,7 @@ import org.scalatra.json._
 
 case class CartItem(productId: Int, quantity: Int)
 
-class CartController extends ScalatraServlet with JacksonJsonSupport {
+class CartController extends ScalatraServlet with JacksonJsonSupport with CorsSupport {
 
   protected implicit lazy val jsonFormats: Formats = DefaultFormats
 
@@ -25,7 +25,7 @@ class CartController extends ScalatraServlet with JacksonJsonSupport {
     }
   }
 
-  // ---------- CREATE ----------
+  // CREATE 
   post("/cart") {
     val item = parsedBody.extract[CartItem]
     cartItems = cartItems :+ item
