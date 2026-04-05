@@ -16,8 +16,10 @@ class CategoryController extends ScalatraServlet with JacksonJsonSupport {
     Category(3, "Criminal")
   )
 
-  // READ 
-  get("/categories") = categories
+  // READ
+  get("/categories") {
+    categories
+  }
 
   get("/categories/:id") {
     val id = params("id").toInt

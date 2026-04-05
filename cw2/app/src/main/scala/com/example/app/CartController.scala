@@ -12,8 +12,10 @@ class CartController extends ScalatraServlet with JacksonJsonSupport {
 
   private var cartItems = List.empty[CartItem]
 
-  // READ 
-  get("/cart") = cartItems
+  // READ
+  get("/cart") {
+    cartItems
+  }
 
   get("/cart/:productId") {
     val productId = params("productId").toInt
