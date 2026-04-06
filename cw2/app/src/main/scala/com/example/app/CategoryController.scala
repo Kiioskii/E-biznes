@@ -6,7 +6,7 @@ import org.scalatra.json._
 
 case class Category(id: Int, name: String)
 
-class CategoryController extends ScalatraServlet with JacksonJsonSupport {
+class CategoryController extends ScalatraServlet with JacksonJsonSupport with CorsSupport {
 
   protected implicit lazy val jsonFormats: Formats = DefaultFormats
 
@@ -16,8 +16,10 @@ class CategoryController extends ScalatraServlet with JacksonJsonSupport {
     Category(3, "Criminal")
   )
 
-  // READ 
-  get("/categories") = categories
+  // READ
+  get("/categories") {
+    categories
+  }
 
   get("/categories/:id") {
     val id = params("id").toInt
