@@ -18,5 +18,11 @@ func main() {
 	e.POST("/posts", handlers.CreatePost)
 	e.GET("/posts", handlers.GetPosts)
 
+	e.POST("/products", handlers.CreateProduct)
+	e.GET("/products", handlers.ListProducts)
+	e.GET("/products/:id", handlers.GetProduct)
+	e.PUT("/products/:id", handlers.UpdateProduct)
+	e.DELETE("/products/:id", handlers.DeleteProduct)
+
 	e.Logger.Fatal(e.Start(":8080"))
 }
