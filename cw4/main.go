@@ -1,6 +1,7 @@
 package main
 
 import (
+	"echo-gorm-api/controllers"
 	"echo-gorm-api/database"
 	"echo-gorm-api/handlers"
 
@@ -18,11 +19,8 @@ func main() {
 	e.POST("/posts", handlers.CreatePost)
 	e.GET("/posts", handlers.GetPosts)
 
-	e.POST("/products", handlers.CreateProduct)
-	e.GET("/products", handlers.ListProducts)
-	e.GET("/products/:id", handlers.GetProduct)
-	e.PUT("/products/:id", handlers.UpdateProduct)
-	e.DELETE("/products/:id", handlers.DeleteProduct)
+	productController := controllers.NewProductController()
+	productController.RegisterRoutes(e)
 
 	e.Logger.Fatal(e.Start(":8080"))
 }
