@@ -27,6 +27,8 @@ func Connect() {
 		&models.User{},
 		&models.Post{},
 		&models.Product{},
+		&models.Cart{},
+		&models.CartItem{},
 	)
 
 	DB = db

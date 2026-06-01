@@ -22,5 +22,8 @@ func main() {
 	productController := controllers.NewProductController()
 	productController.RegisterRoutes(e)
 
+	cartController := controllers.NewCartController()
+	cartController.RegisterRoutes(e)
+
 	e.Logger.Fatal(e.Start(":8080"))
 }

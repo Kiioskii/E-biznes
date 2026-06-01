@@ -6,4 +6,5 @@ type User struct {
 	Email string `json:"email"`
 
 	Posts []Post `json:"posts"`
+	Cart  *Cart  `json:"cart,omitempty" gorm:"foreignKey:UserID"`
 }
