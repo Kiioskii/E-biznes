@@ -39,7 +39,6 @@ data class ApiMessage(val message: String)
 
 @RestController
 @RequestMapping("/api")
-@CrossOrigin(origins = ["*"])
 class ShopController {
 
     private val idCounter = AtomicLong(8)
