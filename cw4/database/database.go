@@ -26,6 +26,7 @@ func Connect() {
 	db.AutoMigrate(
 		&models.User{},
 		&models.Post{},
+		&models.Category{},
 		&models.Product{},
 		&models.Cart{},
 		&models.CartItem{},
