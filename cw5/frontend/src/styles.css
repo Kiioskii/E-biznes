@@ -20,6 +20,18 @@ body {
   color: #6b7280;
 }
 
+.nav {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.nav a {
+  color: #2563eb;
+  text-decoration: none;
+  font-weight: 700;
+}
+
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -66,6 +78,18 @@ body {
   background: #e5e7eb;
 }
 
+.link-btn {
+  text-decoration: none;
+  color: #111827;
+  display: inline-flex;
+  align-items: center;
+}
+
+.product-link {
+  color: inherit;
+  text-decoration: none;
+}
+
 .form {
   display: flex;
   flex-direction: column;
@@ -84,4 +108,19 @@ body {
 
 .error {
   color: #b91c1c;
+}
+
+.qty-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+}
+
+.description {
+  color: #4b5563;
 }

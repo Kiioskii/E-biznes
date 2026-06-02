@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function Koszyk({ apiUrl, items, total }) {
+function Koszyk({ apiUrl, items, total, onChangeQuantity }) {
   const [message, setMessage] = useState("");
   const [saving, setSaving] = useState(false);
 
@@ -36,7 +36,16 @@ function Koszyk({ apiUrl, items, total }) {
         <ul className="list">
           {items.map((item) => (
             <li key={item.productId} className="item">
-              <span>{item.name} x {item.quantity}</span>
+              <span>{item.name}</span>
+              <div className="qty-controls">
+                <button className="btn-secondary" onClick={() => onChangeQuantity(item.productId, -1)}>
+                  -
+                </button>
+                <span>{item.quantity}</span>
+                <button className="btn-secondary" onClick={() => onChangeQuantity(item.productId, 1)}>
+                  +
+                </button>
+              </div>
               <strong>{(item.price * item.quantity).toFixed(2)} PLN</strong>
             </li>
           ))}

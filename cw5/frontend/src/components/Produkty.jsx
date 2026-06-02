@@ -1,34 +1,10 @@
-import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
-function Produkty({ apiUrl, produkty, setProdukty, onAdd }) {
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
-
-  const fetchProducts = async () => {
-    setLoading(true);
-    setError("");
-    try {
-      const res = await fetch(`${apiUrl}/products`);
-      if (!res.ok) {
-        throw new Error("Nie udalo sie pobrac produktow.");
-      }
-      const data = await res.json();
-      setProdukty(data);
-    } catch (err) {
-      setError(err.message);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  useEffect(() => {
-    fetchProducts();
-  }, []);
-
+function Produkty({ produkty, loading, error, onRefresh, onAdd }) {
   return (
     <section className="card">
       <h2>Produkty</h2>
-      <button onClick={fetchProducts} className="btn-secondary">Odswiez</button>
+      <button onClick={onRefresh} className="btn-secondary">Odswiez</button>
 
       {loading && <p>Ladowanie...</p>}
       {error && <p className="error">{error}</p>}
@@ -37,7 +13,9 @@ function Produkty({ apiUrl, produkty, setProdukty, onAdd }) {
         {produkty.map((produkt) => (
           <li key={produkt.id} className="item">
             <div>
-              <strong>{produkt.name}</strong>
+              <Link to={`/products/${produkt.id}`} className="product-link">
+                <strong>{produkt.name}</strong>
+              </Link>
               <p>{produkt.description}</p>
               <small>{produkt.price} PLN</small>
             </div>

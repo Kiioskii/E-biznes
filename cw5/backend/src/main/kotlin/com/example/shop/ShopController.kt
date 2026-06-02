@@ -42,12 +42,17 @@ data class ApiMessage(val message: String)
 @CrossOrigin(origins = ["*"])
 class ShopController {
 
-    private val idCounter = AtomicLong(3)
+    private val idCounter = AtomicLong(8)
     private val products = CopyOnWriteArrayList(
         listOf(
-            Product(1, "Laptop", "Lekki laptop 14 cali", BigDecimal("3999.99")),
-            Product(2, "Mysz bezprzewodowa", "Ergonomiczna mysz Bluetooth", BigDecimal("149.00")),
-            Product(3, "Klawiatura mechaniczna", "Klawiatura RGB", BigDecimal("329.50"))
+            Product(1, "Laptop", "Lekki laptop 14 cali z 16 GB RAM i dyskiem SSD 512 GB.", BigDecimal("3999.99")),
+            Product(2, "Mysz bezprzewodowa", "Ergonomiczna mysz Bluetooth z cichymi przyciskami.", BigDecimal("149.00")),
+            Product(3, "Klawiatura mechaniczna", "Klawiatura RGB z przelacznikami tactile i hot-swap.", BigDecimal("329.50")),
+            Product(4, "Monitor 27", "Monitor 27 cali IPS, rozdzielczosc 2560x1440, 144 Hz.", BigDecimal("1399.00")),
+            Product(5, "Sluchawki", "Bezprzewodowe sluchawki z ANC i czasem pracy do 30 godzin.", BigDecimal("499.99")),
+            Product(6, "Kamera internetowa", "Kamera Full HD z autofokusem do spotkan online.", BigDecimal("259.00")),
+            Product(7, "Stacja dokujaca USB-C", "Stacja z HDMI, LAN i trzema portami USB 3.0.", BigDecimal("349.90")),
+            Product(8, "Dysk zewnetrzny 1TB", "Szybki dysk SSD USB-C do backupu danych.", BigDecimal("419.00"))
         )
     )
 
