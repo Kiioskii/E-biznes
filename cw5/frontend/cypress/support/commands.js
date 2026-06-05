@@ -2,6 +2,19 @@ const API_URL = Cypress.env("apiUrl") || "http://localhost:8080/api";
 
 Cypress.Commands.add("apiUrl", () => API_URL);
 
+Cypress.Commands.add("cleanupTestProducts", () => {
+  cy.request("GET", `${API_URL}/products`).then((response) => {
+    const testProductIds = response.body.filter((product) => product.id > 8).map((product) => product.id);
+    testProductIds.forEach((id) => {
+      cy.request("DELETE", `${API_URL}/products/${id}`);
+    });
+  });
+});
+
+Cypress.Commands.add("getProductCount", () => {
+  return cy.request("GET", `${API_URL}/products`).its("body.length");
+});
+
 Cypress.Commands.add("mockProductsApi", (options = {}) => {
   const { products, statusCode = 200, delay = 0 } = options;
 

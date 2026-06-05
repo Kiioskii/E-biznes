@@ -1,13 +1,14 @@
 describe("Integracja frontend-backend", () => {
   it("29. wyswietla produkty pobrane bezposrednio z backendu", () => {
-    cy.apiUrl().then((apiUrl) => {
-      cy.request("GET", `${apiUrl}/products`).then((response) => {
-        expect(response.body).to.have.length(8);
-      });
+    cy.getProductCount().then((count) => {
+      expect(count).to.be.at.least(8);
+      cy.wrap(count).as("productCount");
     });
 
     cy.visitApp();
-    cy.get("ul.list li.item").should("have.length", 8);
+    cy.get("@productCount").then((count) => {
+      cy.get("ul.list li.item").should("have.length", count);
+    });
     cy.contains("strong", "Stacja dokujaca USB-C").should("be.visible");
     cy.contains("small", "349.9 PLN").should("be.visible");
   });

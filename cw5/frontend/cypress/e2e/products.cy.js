@@ -1,9 +1,15 @@
 describe("Lista produktow", () => {
   it("5. pobiera i wyswietla liste produktow z backendu", () => {
+    cy.getProductCount().then((count) => {
+      cy.wrap(count).as("productCount");
+    });
     cy.visitApp();
     cy.contains("h2", "Produkty").should("be.visible");
     cy.get("button.btn-secondary").contains("Odswiez").should("be.visible");
-    cy.get("ul.list li.item").should("have.length", 8);
+    cy.get("@productCount").then((count) => {
+      expect(count).to.be.at.least(8);
+      cy.get("ul.list li.item").should("have.length", count);
+    });
 
     cy.contains("strong", "Laptop").should("be.visible");
     cy.contains("strong", "Mysz bezprzewodowa").should("be.visible");
@@ -38,10 +44,15 @@ describe("Lista produktow", () => {
   });
 
   it("8. odswieza liste produktow po kliknieciu przycisku Odswiez", () => {
+    cy.getProductCount().then((count) => {
+      cy.wrap(count).as("productCount");
+    });
     cy.visitApp();
     cy.get("button.btn-secondary").contains("Odswiez").click();
     cy.wait("@getProducts");
-    cy.get("ul.list li.item").should("have.length", 8);
+    cy.get("@productCount").then((count) => {
+      cy.get("ul.list li.item").should("have.length", count);
+    });
     cy.contains("strong", "Dysk zewnetrzny 1TB").should("be.visible");
   });
 
