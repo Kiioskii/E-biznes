@@ -1,3 +1,7 @@
+const API_URL = Cypress.env("apiUrl") || "http://localhost:8080/api";
+
+Cypress.Commands.add("apiUrl", () => API_URL);
+
 Cypress.Commands.add("mockProductsApi", (options = {}) => {
   const { products, statusCode = 200, delay = 0 } = options;
 
@@ -32,8 +36,24 @@ Cypress.Commands.add("mockPaymentsApi", (message) => {
   }).as("processPayment");
 });
 
-Cypress.Commands.add("visitApp", (path = "/products") => {
-  cy.mockProductsApi();
+Cypress.Commands.add("visitApp", (path = "/products", options = {}) => {
+  const { useMock = false, mockOptions = {} } = options;
+
+  if (useMock) {
+    cy.mockProductsApi(mockOptions);
+  } else {
+    cy.intercept("GET", "**/api/products").as("getProducts");
+  }
+
   cy.visit(path);
   cy.wait("@getProducts");
+});
+
+Cypress.Commands.add("addProductToCart", (productName) => {
+  cy.contains("li.item", productName).find("button.btn-primary").click();
+});
+
+Cypress.Commands.add("openCart", () => {
+  cy.get("nav.nav").contains("a", "Koszyk").click();
+  cy.url().should("include", "/cart");
 });

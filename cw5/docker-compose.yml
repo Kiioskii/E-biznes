@@ -5,6 +5,12 @@ services:
     container_name: shop-backend
     ports:
       - "8080:8080"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/api/products"]
+      interval: 5s
+      timeout: 5s
+      retries: 12
+      start_period: 30s
 
   frontend:
     build:
@@ -15,4 +21,11 @@ services:
     environment:
       - VITE_API_URL=http://localhost:8080/api
     depends_on:
-      - backend
+      backend:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "wget", "-q", "-O", "/dev/null", "http://localhost:5173"]
+      interval: 5s
+      timeout: 5s
+      retries: 12
+      start_period: 20s

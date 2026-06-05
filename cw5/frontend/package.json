@@ -9,8 +9,8 @@
     "preview": "vite preview --host 0.0.0.0 --port 4173",
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
-    "test:e2e": "start-server-and-test dev http://localhost:5173 cypress:run",
-    "test:e2e:open": "start-server-and-test dev http://localhost:5173 cypress:open"
+    "test:e2e": "bash scripts/docker-test-env.sh cypress:run",
+    "test:e2e:open": "bash scripts/docker-test-env.sh cypress:open"
   },
   "dependencies": {
     "react": "^18.3.1",
@@ -20,7 +20,7 @@
   "devDependencies": {
     "@vitejs/plugin-react": "^4.3.1",
     "cypress": "^15.16.0",
-    "start-server-and-test": "^3.0.7",
+    "wait-on": "^8.0.3",
     "vite": "^5.3.4"
   }
 }
