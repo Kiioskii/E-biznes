@@ -1,0 +1,44 @@
+# Secrets
+.env
+.env.local
+.env.*.local
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+*.iml
+*.ipr
+*.iws
+
+# Frontend
+frontend/node_modules/
+frontend/dist/
+frontend/dist-ssr/
+frontend/.vite/
+frontend/npm-debug.log*
+frontend/yarn-debug.log*
+frontend/yarn-error.log*
+
+# Backend (Kotlin / Gradle)
+backend/.gradle/
+backend/build/
+backend/out/
+backend/.kotlin/
+
+# Services (Python)
+services/__pycache__/
+services/*.py[cod]
+services/.venv/
+services/venv/
+services/.pytest_cache/
+services/.mypy_cache/
+
+# Logs
+*.log
+
+# Docker local overrides
+docker-compose.override.yml
