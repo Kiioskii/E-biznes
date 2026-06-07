@@ -4,6 +4,7 @@ require('./db');
 
 const authRoutes = require('./routes/auth');
 const googleRoutes = require('./routes/google');
+const githubRoutes = require('./routes/github');
 const config = require('./config');
 
 const app = express();
@@ -21,6 +22,7 @@ app.get('/api/health', (_req, res) => {
 
 app.use('/api/auth', authRoutes);
 app.use('/api/auth', googleRoutes);
+app.use('/api/auth', githubRoutes);
 
 app.listen(config.port, () => {
   console.log(`Server running on http://localhost:${config.port}`);

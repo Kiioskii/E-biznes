@@ -61,9 +61,14 @@ export default function SignIn() {
       <div className="auth-divider">
         <span>lub</span>
       </div>
-      <a href="/api/auth/google" className="btn btn-google btn-full">
-        Zaloguj przez Google
-      </a>
+      <div className="auth-oauth">
+        <a href="/api/auth/google" className="btn btn-google btn-full">
+          Zaloguj przez Google
+        </a>
+        <a href="/api/auth/github" className="btn btn-github btn-full">
+          Zaloguj przez GitHub
+        </a>
+      </div>
       <p className="auth-footer">
         Nie masz konta? <Link to="/sign-up">Zarejestruj się</Link>
       </p>
