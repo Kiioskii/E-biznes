@@ -85,7 +85,8 @@ aplikacji klienckiej [-->](https://github.com/Kiioskii/E-biznes-fornt/tree/489ec
 
 ------------------------------------------------------------<br><br>
 **ZADANIE 8** <br>
-Projekt: forntend(React) + backend(Node.js+express)<br><br>
+Projekt: forntend(React) + backend(Node.js+express)<br>
+Film z działaniem aplikacji [-->](https://drive.google.com/file/d/14vcNvHcWq1vxTCakwdQqDrJooXOI1z8-/view?usp=sharing)<br><br>
 
 3.0 logowanie przez aplikację serwerową (bez Oauth2) [-->](https://github.com/Kiioskii/E-biznes/tree/2e6a716cfc80d208155698589c24a814a97e8671)<br>
 3.5 rejestracja przez aplikację serwerową (bez Oauth2) [-->](https://github.com/Kiioskii/E-biznes/tree/4360e5e66c7d0ff3092c9e0c1292539a8c1fa4a3)<br>
