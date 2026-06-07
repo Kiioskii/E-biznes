@@ -210,6 +210,33 @@ a:hover {
   color: #6b7280;
 }
 
+.auth-divider {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 1.25rem 0;
+  color: #9ca3af;
+  font-size: 0.875rem;
+}
+
+.auth-divider::before,
+.auth-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: #e5e7eb;
+}
+
+.btn-google {
+  background: #fff;
+  color: #1a1a2e;
+  border: 1px solid #d1d5db;
+}
+
+.btn-google:hover {
+  background: #f9fafb;
+}
+
 .dashboard {
   width: 100%;
   max-width: 640px;

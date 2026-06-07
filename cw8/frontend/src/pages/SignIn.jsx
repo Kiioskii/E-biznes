@@ -58,6 +58,12 @@ export default function SignIn() {
           {submitting ? 'Logowanie...' : 'Zaloguj się'}
         </button>
       </form>
+      <div className="auth-divider">
+        <span>lub</span>
+      </div>
+      <a href="/api/auth/google" className="btn btn-google btn-full">
+        Zaloguj przez Google
+      </a>
       <p className="auth-footer">
         Nie masz konta? <Link to="/sign-up">Zarejestruj się</Link>
       </p>

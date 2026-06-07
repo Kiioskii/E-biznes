@@ -42,6 +42,13 @@ export function AuthProvider({ children }) {
         return data.user;
     }
 
+    async function completeOAuthLogin(token) {
+        setToken(token);
+        const data = await apiFetch("/api/auth/me");
+        setUser(data.user);
+        return data.user;
+    }
+
     async function logout() {
         try {
             await apiFetch("/api/auth/logout", { method: "POST" });
@@ -60,6 +67,7 @@ export function AuthProvider({ children }) {
                 loading,
                 login,
                 register,
+                completeOAuthLogin,
                 logout,
             }}
         >

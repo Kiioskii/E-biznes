@@ -3,13 +3,14 @@ const cors = require('cors');
 require('./db');
 
 const authRoutes = require('./routes/auth');
+const googleRoutes = require('./routes/google');
+const config = require('./config');
 
 const app = express();
-const PORT = process.env.PORT || 3001;
 
 app.use(
   cors({
-    origin: 'http://localhost:5173',
+    origin: config.frontendUrl,
   }),
 );
 app.use(express.json());
@@ -19,7 +20,8 @@ app.get('/api/health', (_req, res) => {
 });
 
 app.use('/api/auth', authRoutes);
+app.use('/api/auth', googleRoutes);
 
-app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
+app.listen(config.port, () => {
+  console.log(`Server running on http://localhost:${config.port}`);
 });

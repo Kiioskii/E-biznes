@@ -1,21 +1,10 @@
 const express = require("express");
-const crypto = require("crypto");
 const bcrypt = require("bcryptjs");
 const db = require("../db");
 const { authenticate } = require("../middleware/auth");
+const { createSession } = require("../services/session");
 
 const router = express.Router();
-
-const SESSION_TTL_MS = 7 * 24 * 60 * 60 * 1000;
-
-function createSession(userId) {
-    const token = crypto.randomUUID();
-    const expiresAt = new Date(Date.now() + SESSION_TTL_MS).toISOString();
-
-    db.prepare("INSERT INTO sessions (token, user_id, expires_at) VALUES (?, ?, ?)").run(token, userId, expiresAt);
-
-    return { token, expiresAt };
-}
 
 function normalizeEmail(email) {
     return email.trim().toLowerCase();
@@ -70,7 +59,7 @@ router.post("/login", (req, res) => {
         .prepare("SELECT id, email, password_hash FROM users WHERE email = ?")
         .get(normalizeEmail(email));
 
-    if (!user || !bcrypt.compareSync(password, user.password_hash)) {
+    if (!user?.password_hash || !bcrypt.compareSync(password, user.password_hash)) {
         return res.status(401).json({ error: "Nieprawidłowy email lub hasło" });
     }
 
