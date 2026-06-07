@@ -96,4 +96,16 @@ Film z działaniem aplikacji [-->](https://drive.google.com/file/d/14vcNvHcWq1vx
 
 ------------------------------------------------------------<br><br>
 **ZADANIE 9** <br>
+Filma z działania aplikacji: [-->](https://drive.google.com/file/d/12jjynl0FyYZ-fVH5H_9X1IH_K1pCAPiK/view?usp=sharing)<br><br>
+
+3.0 należy stworzyć po stronie serwerowej osobny serwis do łącznia z
+chatGPT [-->](https://github.com/Kiioskii/E-biznes/tree/4d22bad259fc47d78cb477410be1a58f56a2f6a8)<br>
+3.5 należy połączyć serwis z interfejsem frontendowym via serwis w
+Kotlinie (zadanie 3) - discord + JS [-->](https://github.com/Kiioskii/E-biznes/tree/4d22bad259fc47d78cb477410be1a58f56a2f6a8)<br>
+4.0 stworzyć listę 5 różnych otwarć oraz zamknięć rozmowy [-->](https://github.com/Kiioskii/E-biznes/tree/73efa1fa4b84831a1311f1b72865e6b4d792900d)<br>
+4.5 filtrowanie po zagadnieniach związanych ze sklepem (np.
+ograniczenie się jedynie do ubrań oraz samego sklepu) do GPT [-->](https://github.com/Kiioskii/E-biznes/tree/c783c26c44d83c433ad59d0825a185c7babf2429)<br><br>
+
+------------------------------------------------------------<br><br>
+**ZADANIE 10** <br>
 
