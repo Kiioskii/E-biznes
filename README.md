@@ -108,4 +108,12 @@ ograniczenie się jedynie do ubrań oraz samego sklepu) do GPT [-->](https://git
 
 ------------------------------------------------------------<br><br>
 **ZADANIE 10** <br>
+Wdrożenie apliakcji backendowej do chmury - Microsoft Azure <br>
+Link do aplikacji: https://ebiz.livelytree-63fc6161.germanywestcentral.azurecontainerapps.io <br>
+Lista produktów: https://ebiz.livelytree-63fc6161.germanywestcentral.azurecontainerapps.io/api/products <br>
+<br>
+Integracja odbyła się za pośrednictwm dockera:<br>
+Resource Group -> Container Registry<br><br>
 
+3.0 Należy stworzyć odpowiednie instancje po stronie chmury na
+dockerze
